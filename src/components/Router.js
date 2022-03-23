@@ -4,6 +4,7 @@ import Auth from "routes/Auth";
 import Home from "routes/Home";
 import Navigation from "components/Navigation";
 import Profile from "routes/Profile";
+import styles from "../styles.css";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
@@ -12,12 +13,23 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
       <Switch>
         {isLoggedIn ? (
           <>
-            <Route exact path="/">
-              <Home userObj={userObj} />
-            </Route>
-            <Route exact path="/profile">
-              <Profile refreshUser={refreshUser} userObj={userObj} />
-            </Route>
+            <div
+              style={{
+                maxWidth: 890,
+                width: "100%",
+                margin: "0 auto",
+                marginTop: 80,
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Route exact path="/">
+                <Home userObj={userObj} />
+              </Route>
+              <Route exact path="/profile">
+                <Profile refreshUser={refreshUser} userObj={userObj} />
+              </Route>
+            </div>
           </>
         ) : (
           <Route exact path="/">
