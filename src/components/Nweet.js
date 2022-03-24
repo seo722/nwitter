@@ -27,6 +27,15 @@ const Nweet = ({ nweetObj, isOwner }) => {
     } = e;
     setNewNweet(value);
   };
+
+  const date = new Date(nweetObj.createdAt);
+  const year = date.getFullYear();
+  const month = ("0" + (date.getMonth() + 1)).slice(-2);
+  const day = ("0" + date.getDate()).slice(-2);
+  const hour = ("0" + date.getHours()).slice(-2); //시 2자리 (00, 01 ... 23)
+  const minute = ("0" + date.getMinutes()).slice(-2); //분 2자리 (00, 01 ... 59)
+  console.log(year + "." + month + "." + day + " " + hour + ":" + minute);
+
   return (
     <div className="nweet">
       {editing ? (
@@ -53,10 +62,11 @@ const Nweet = ({ nweetObj, isOwner }) => {
         </>
       ) : (
         <>
+          <h6>{year + "." + month + "." + day + " " + hour + ":" + minute}</h6>
           <h4>{nweetObj.text}</h4>
           {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} />}
           {isOwner && (
-            <div class="nweet__actions">
+            <div className="nweet__actions">
               <span onClick={onDeleteClick}>
                 <FontAwesomeIcon icon={faTrash} />
               </span>

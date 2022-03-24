@@ -181,6 +181,12 @@ form {
   color: rgba(0, 0, 0, 0.8);
 }
 
+.nweet h6 {
+  font-size: 11px;
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+
 .nweet h4 {
   font-size: 14px;
 }
@@ -188,11 +194,11 @@ form {
 .nweet img {
   right: -10px;
   top: 20px;
-  position: absolute;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin-top: 10px;
+  /* position: absolute; */
+  border-radius: 5%;
+  width: 100%;
+  height: 100%;
+  margin-top: 15px;
 }
 
 .nweet__actions {

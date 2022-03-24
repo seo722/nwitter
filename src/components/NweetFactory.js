@@ -28,8 +28,10 @@ const NweetFactory = ({ userObj }) => {
       creatorId: userObj.uid,
       attachmentUrl,
     };
+    // const date = nweetObj.createdAt;
+    // console.log(date);
+
     await dbService.collection("nweets").add(nweetObj);
-    // console.log(attachmentUrl);
     fileInput.current.value = null;
     setNweet("");
     setAttachment("");
@@ -75,7 +77,7 @@ const NweetFactory = ({ userObj }) => {
         />
         <input type="submit" value="&rarr;" className="factoryInput__arrow" />
       </div>
-      <label for="attach-file" className="factoryInput_label">
+      <label htmlFor="attach-file" className="factoryInput_label">
         <span>Add photos</span>
         <FontAwesomeIcon icon={faPlus} />
       </label>
@@ -83,7 +85,7 @@ const NweetFactory = ({ userObj }) => {
         ref={fileInput}
         type="file"
         id="attach-file"
-        accept="images/*"
+        accept="images/*;cature=camera"
         onChange={onFileChange}
         style={{ opacity: 0 }}
       />
